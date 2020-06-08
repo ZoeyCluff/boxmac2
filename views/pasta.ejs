@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Boxmac Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    table, td, th {
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 50%;
+
+    }
+    .table-data{
+        position: relative;
+      left:75px;
+      top:25px;
+    }
+    th, td {
+      padding: 15px;
+    }
+    </style>
+</head>
+<body>
+    <div class="table-data">
+<table border="1">
+
+    <tr>
+
+      <th>Product Name</th>
+      <th>Origin Country</th>
+      <th>Store/Brand</th>
+      <th>Pasta</th>
+      <th>Prep Type*</th>
+      <th>Pasta Type</th>
+      <th>Organic</th>
+      <th>Vegan</th>
+      <th>Microwave Prepped</th>
+      <th>Expired?</th>
+      <th>Raw Price</th>
+      <th>Sauce Type</th>
+      <th>Size</th>
+      <th>Episode</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Comments</th>
+    <tr>
+
+    <%
+    if(userData.length!=0){
+      var i=1;
+      userData.forEach(function(data){
+        %>
+        <tr>
+
+          <td><%=data.product_name %></td>
+          <td><%=data.origin_country %></td>
+          <td><%=data.store_brand %></td>
+          <td><%=data.pasta %></td>
+          <td><%=data.adc %></td>
+          <td><%=data.pasta_type %></td>
+          <td><%=data.org %></td>
+          <td><%=data.veg %></td>
+          <td><%=data.mic %></td>
+          <td><%=data.exp %></td>
+          <td><%=data.price_raw %></td>
+          <td><%=data.sauce_type %></td>
+          <td><%=data.size %></td>
+          <td><a href='<%=data.url %>'target="_blank"><%=data.ep_no %></td>
+          <td><%=data.price %></td>
+          <td><%=data.rating %></td>
+          <td><%=data.comments %></td>
+        </tr>
+        <% i++ }) %>
+        <% } else{ %>
+          <tr>
+            <td colspan="7"No Data Found </td>
+            </tr>
+          <% } %>
+
+
+
+  </table>
+  <p>* Prep types: M = Milk, B = Butter, NDM = Non Dairy Milk, W = Water</p>
+</div>
+</body>
+</html>
